@@ -1,9 +1,8 @@
 package com.talespalma.creditapplicationsystem.services
 
-import com.talespalma.creditapplicationsystem.entity.Credit
 import com.talespalma.creditapplicationsystem.entity.Customer
 
-interface ICustomService {
+interface ICustomerService {
     fun save(custom: Customer): Customer
     fun findAllById(customerId: Long): Customer
     fun delete(id: Long): Customer

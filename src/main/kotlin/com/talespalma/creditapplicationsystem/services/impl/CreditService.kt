@@ -1,22 +1,27 @@
 package com.talespalma.creditapplicationsystem.services.impl
 
 import com.talespalma.creditapplicationsystem.entity.Credit
+import com.talespalma.creditapplicationsystem.repositorys.CreditRepository
 import com.talespalma.creditapplicationsystem.services.ICreditService
 import org.springframework.stereotype.Service
 import java.util.*
 
 
 @Service
-class CreditService: ICreditService {
+class CreditService(
+    private val creditRepository: CreditRepository,
+)
+    : ICreditService {
     override fun save(credit: Credit): Credit {
-        TODO("Not yet implemented")
+        return this.creditRepository.save(credit)
     }
 
     override fun findAllByCustomerId(customerId: Long): List<Credit> {
-        TODO("Not yet implemented")
+        return this.creditRepository.findAll()
     }
 
     override fun findByCreditCode(creditCode: UUID): Credit {
-        TODO("Not yet implemented")
+        return this.creditRepository.findByCreditCode(creditCode)
     }
+
 }

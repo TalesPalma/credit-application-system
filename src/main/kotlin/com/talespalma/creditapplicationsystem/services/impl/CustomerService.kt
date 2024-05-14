@@ -1,26 +1,26 @@
 package com.talespalma.creditapplicationsystem.services.impl
 
-import com.talespalma.creditapplicationsystem.entity.Credit
 import com.talespalma.creditapplicationsystem.entity.Customer
 import com.talespalma.creditapplicationsystem.repositorys.CustomerReposytori
-import com.talespalma.creditapplicationsystem.services.ICustomService
+import com.talespalma.creditapplicationsystem.services.ICustomerService
 import org.springframework.stereotype.Service
 
 @Service
 class CustomerService(
-    private val customerRepository:CustomerReposytori
-) : ICustomService {
-    override fun save(customer: Customer): Customer {
-        customerRepository.save(customer)
-        return customer
+    private val customerRepository: CustomerReposytori
+) : ICustomerService {
+    override fun save(custom: Customer): Customer {
+        return this.customerRepository.save(custom)
     }
 
     override fun findAllById(customerId: Long): Customer {
-        TODO("Not yet implemented")
+        return this.customerRepository.findById(customerId).orElseThrow()
     }
 
     override fun delete(id: Long): Customer {
-        TODO("Not yet implemented")
+        this.customerRepository.deleteById(id)
+        return this.customerRepository.findById(id).orElseThrow()
     }
+
 
 }

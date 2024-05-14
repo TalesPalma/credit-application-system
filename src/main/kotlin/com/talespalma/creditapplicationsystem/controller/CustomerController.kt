@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-@RequestMapping("/credit")
-class CreditController {
-
-
+@RequestMapping("/customer")
+class CustomerController {
 }
